@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ukr" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Харків візитка</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <a href="index.html" class="brand"><img src="COA_of_Kharkiv_Oblast.svg" alt="Харків"></a>
+        <div class="menu-btn"></div>
+        <div class="navigation">
+            <div class="navigation-items">
+                <a href="#" class="nav-btn active">Головна</a>
+                <a href="#" class="nav-btn">Дзеркальний струмінь</a>
+                <a href="#" class="nav-btn">Зоопарк</a>
+                <a href="#" class="nav-btn">Міський сад ім. Тараса Шевченка</a>
+                <a href="#" class="nav-btn">Саржин Яр</a>
+            </div>
+        </div>
+    </header>
+    <section class="home">
+        <video class="video-slide active" src="1.mp4" autoplay muted loop></video>
+        <video class="video-slide" src="2.mp4" autoplay muted loop></video>
+        <video class="video-slide" src="3.mp4" autoplay muted loop></video>
+        <video class="video-slide" src="4.mp4" autoplay muted loop></video>
+        <video class="video-slide" src="5.mp4" autoplay muted loop></video>
+        <div class="content active">
+            <h1>Місто<br><span>Харків</span></h1>
+            <p>Харків — велике місто України, що плине від історичних крас і сучасності. Його архітектурна витонченість,
+                культурне багатство та космополітичний дух переплітаються у вузьких вуличках та величних спорудах,
+                створюючи неповторний образ міста, яке завжди готове вас вразити своєю енергією та різноманіттям.</p>
+        </div>
+        <div class="content">
+            <h1>Дзеркальний<br><span>струмінь</span></h1>
+            <p>Дзеркальний струмінь – це витончена кам'яна мініатюра, що знаходится у серці міста. Він відображає
+                в собі врізний світ: струмок води, як втілення спокою, віддзеркалює міську сучасність та історичний шар
+                минулого. Це казкове місце, де легенди сплітаються з реальністю, запрошуючи гостей зануритись у відтінки
+                міста Харкова через водяну призму Дзеркального струміню.</p>
+        </div>
+        <div class="content">
+            <h1>Зоопарк<br></h1>
+            <p>Харківський зоопарк — чарівний світ природи всередині міста, де зустрічаються екзотичні тварини з різних
+                куточків світу. Він пропонує захоплюючу подорож до життя дикої природи, де кожен крок відкриває
+                неймовірну красу й різноманітність звірів — від слона до екзотичних птахів та хижаків. Зоопарк
+                не тільки надає можливість навчатися про різноманіття живого світу, але й допомагає підтримувати
+                програми збереження та освіти, спонукаючи відвідувачів піклуватися про нашу планету та її мешканців.</p>
+        </div>
+        <div class="content">
+            <h1>Міський сад<br><span>ім. Тараса Шевченка</span></h1>
+            <p>Сад ім. Тараса Шевченка - це віденець природної гармонії та культурної спадщини, де витончений пейзаж
+                поєднується з вишуканими скульптурами та фонтанами, створюючи неповторний простір для відпочинку та
+                вдумливих прогулянок.</p>
+        </div>
+        <div class="content">
+            <h1>Саржин Яр</h1>
+            <p>Саржин Яр – чарівне природне урочище, де зустрічаються вікові дерева, живописні долини та струмки. Це
+                оазис спокою, заповнений красою та таємницею, який залучає своєю вродою природи та можливістю відкрити
+                нові куточки відпочинку.</p>
+        </div>
+        <div class="media-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+        </div>
+    </section>
+
+    <script type="text/javascript">
+        //Javascript of responsive navigation menu
+        const menuBtn = document.querySelector(".menu-btn");
+        const navigation = document.querySelector(".navigation")
+        menuBtn.addEventListener("click", () => {
+            menuBtn.classList.toggle("active");
+            navigation.classList.toggle("active");
+        });
+
+        //Javascript slider video
+        const btns = document.querySelectorAll(".nav-btn");
+        const slides = document.querySelectorAll(".video-slide");
+        const contents = document.querySelectorAll(".content");
+
+        var sliderNav = function (manual) {
+            btns.forEach((btn) => {
+                btn.classList.remove("active")
+            });
+            slides.forEach((slide) => {
+                slide.classList.remove("active")
+            });
+            contents.forEach((content) => {
+                content.classList.remove("active")
+            });
+            btns[manual].classList.add("active");
+            slides[manual].classList.add("active");
+            contents[manual].classList.add("active");
+        }
+        btns.forEach((btn, i) => {
+            btn.addEventListener("click", () => {
+                sliderNav(i);
+            });
+        });
+    </script>
+</body>
+
+</html>
